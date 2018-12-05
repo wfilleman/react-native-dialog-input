@@ -8,6 +8,16 @@ class DialogInput extends React.Component{
     this.state = { inputModal: '', openning: true }
   }
 
+  static getDerivedStateFromProps(props, state) {
+    if (state.openning) {
+      return {
+        inputModal: props.value,
+      };
+    }
+    return null;
+  }
+
+
   render(){
     let title = this.props.title || '';
     let hintInput = this.props.hintInput || '';
@@ -31,6 +41,10 @@ class DialogInput extends React.Component{
         transparent={true}
         visible={this.props.isDialogVisible}
       	onRequestClose={() => {
+          this.props.closeDialog();
+          this.state = { inputModal: '' };
+      	}}
+        onDismiss={() => {
           this.props.closeDialog();
           this.state = { inputModal: '' };
       	}}>
