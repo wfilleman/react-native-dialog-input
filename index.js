@@ -21,11 +21,7 @@ class DialogInput extends React.Component{
   render(){
     let title = this.props.title || '';
     let hintInput = this.props.hintInput || '';
-    let value = null;
-
-    if (!this.state.openning) {
-      value = this.state.inputModal
-    }
+    let value = this.state.inputModal;
 
     let textProps = this.props.textInputProps || null;
     let modalStyleProps = this.props.modalStyle || {};
