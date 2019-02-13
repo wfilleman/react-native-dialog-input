@@ -21,8 +21,9 @@ class DialogInput extends React.Component{
   render(){
     let title = this.props.title || '';
     let hintInput = this.props.hintInput || '';
+    
     let value = this.state.inputModal;
-
+    
     let textProps = this.props.textInputProps || null;
     let modalStyleProps = this.props.modalStyle || {};
     let dialogStyleProps = this.props.dialogStyle || {};
@@ -60,7 +61,7 @@ class DialogInput extends React.Component{
                   onKeyPress={() => this.setState({ openning: false })}
                   underlineColorAndroid='transparent'
                   placeholder={hintInput}
-                  onChangeText={(inputModal) => this.setState({inputModal})}
+                  onChangeText={(inputModal) => this.setState({inputModal, openning: false})}
                   value={value}
                   />
               </View>
